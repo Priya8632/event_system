@@ -11,7 +11,7 @@ if(isset($_REQUEST['submit'])){
     
         $createtbl = "CREATE TABLE student(
         Id int(10) auto_increment primary key,
-        Game text,
+        Event text,
         Full_name text,
         Standard int(3),
         Roll_no int(3),
@@ -24,7 +24,7 @@ if(isset($_REQUEST['submit'])){
     }
     }
 
-    if(empty($_POST['game'])){
+    if(empty($_POST['event'])){
         $gamearr = "required";}
     elseif(empty($_POST['fname'])){
         $fnamearr = "fname is required";}
@@ -47,7 +47,7 @@ if(isset($_REQUEST['submit'])){
 
     else{
 
-    $game =$_POST['game'];
+    $event =$_POST['event'];
     $fname = $_POST['fname'];
     $std = $_POST['std'];
     $rollno = $_POST['rollno'];
@@ -56,12 +56,15 @@ if(isset($_REQUEST['submit'])){
     
 
     $insert = "INSERT INTO student
-        (`Game`,`Full_name`,`Standard`,`Roll_no`,`Mobile`,`Gender`) VALUES 
-        ('$game','$fname','$std','$rollno','$mob','$gender')";
+        (`Event`,`Full_name`,`Standard`,`Roll_no`,`Mobile`,`Gender`) VALUES 
+        ('$event','$fname','$std','$rollno','$mob','$gender')";
     
         if(mysqli_query($conn,$insert)){
             header('location:message.php');
         } 
+        else{
+            echo mysqli_error($conn);
+        }
     }
 }
 
@@ -97,8 +100,8 @@ if(isset($_REQUEST['submit'])){
 
             <div class="gorm-group">
                 <label>GAME</label>
-                <select  class="form-control" name="game"> 
-                    <option value=""><?php if(isset($_POST['game'])) { echo $_POST['game'];}?></option> 
+                <select  class="form-control" name="event"> 
+                    <option value=""><?php if(isset($_POST['event'])) { echo $_POST['event'];}?></option> 
                     <option value="chess">CHESS</option>
                     <option value="khokho">KHOKHO</option>
                     <option value="cricket">CRICKET</option>
