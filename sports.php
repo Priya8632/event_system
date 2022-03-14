@@ -44,9 +44,6 @@ if(isset($_REQUEST['submit'])){
 ?>
 
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

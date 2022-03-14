@@ -34,7 +34,7 @@ include 'conn.php';
 
 <div class="table-responsive"> 
         <table class="table table-hover">
-            <thead class="thead-dark">                
+            <thead class="thead-success">                
                 <tr>
                     <td>EVENT</td>
                     <td>FULL NAME</td>
